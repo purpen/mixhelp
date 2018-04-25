@@ -1,6 +1,10 @@
 # -*- coding:utf-8 -*-
+import os
 import logging
 from logging.handlers import RotatingFileHandler
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+
 class Config():
 
 
@@ -10,6 +14,8 @@ class Config():
     # mysql://<username>:<password>@<host>/<dbname>[?<options>]
     SQLALCHEMY_DATABASE_URI = 'mysql://root:mysql@localhost/mixhelp'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
+
+    UPLOADED_PHOTOS_DEST = basedir + 'public/uploads'
 
 
 class DevelopmentConfig(Config):
