@@ -5,40 +5,40 @@ from mixhelp.extensions import db
 class Classify(db.Model):
     """问题分类表"""
 
-    __tablename__ = 'classify'
+    __tablename__ = 'issue_classify'
 
     id = db.Column(db.Integer, primary_key=True)
-    type_name = db.Column(db.String(50), index=True, unique=True)
+    type_name = db.Column(db.String(50), index=True)
     group = db.relationship('Group')
 
 
 class Group(db.Model):
     """问题分组表"""
 
-    __tablename__ = 'group'
+    __tablename__ = 'issue_group'
 
     id = db.Column(db.Integer, primary_key=True)
-    group_name = db.Column(db.String(50), unique=True, index=True)
-    classify_id = db.Column(db.String(50), db.ForeignKey('classify.type_name'))
+    group_name = db.Column(db.String(50), unique=True)
+    classify_id = db.Column(db.String(50), db.ForeignKey('issue_classify.type_name'))
     info = db.relationship('Info')
 
 
 class Info(db.Model):
     """信息表"""
 
-    __tablename__ = 'info'
+    __tablename__ = 'issue_info'
 
     id = db.Column(db.Integer, primary_key=True)
-    details_name = db.Column(db.String(50), unique=True, index=True)
+    details_name = db.Column(db.String(50), index=True)
     details_title = db.Column(db.String(30))
-    content = db.Column(db.String(300))
+    content = db.Column(db.Text)
     comment_num = db.Column(db.Integer)
     solve_num = db.Column(db.Integer)
     unsolved_num = db.Column(db.Integer)
-    image_url = db.Column(db.String(50))
+    image_url = db.Column(db.String(200))
     file_url = db.Column(db.String(50))
     unsolved_cause = db.Column(db.Integer)
-    info_name = db.Column(db.String(50), db.ForeignKey('group.group_name'))
+    info_name = db.Column(db.String(50), db.ForeignKey('issue_group.group_name'))
 
 
 

@@ -4,8 +4,10 @@ from tool.filter import FilterConverter
 from .extensions import (
     db,
     csrf,
+    photos
 )
 from config import config
+from flask_uploads import configure_uploads
 # from flask_sqlalchemy import SQLAlchemy
 
 
@@ -20,7 +22,7 @@ def crate_app(config_name):
     app.config.from_object(config[config_name])
     db.init_app(app)
 
-    # app.debug = True
+    configure_uploads(app, photos)
 
     app.url_map.converters['get_num'] = FilterConverter
 
