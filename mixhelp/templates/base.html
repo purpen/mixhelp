@@ -2,14 +2,14 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" href="{{url_for()}}css/reset.css"/>
-	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/reset.css') }}"/>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/index.css') }}">
 </head>
 <body>
 	<!-- 导航开始 -->
 	<div class="nav">
 		<div>
-            <img src="image/logo@2x.png" alt=""/>
+            <img src="{{ url_for('static',filename='image/logo@2x.png')}}" alt=""/>
 	    </div>
         <ul>
 	        <li>
@@ -47,8 +47,8 @@
     		<div class="issueTemp">
                 <div>
                     <p>问题01</p>
-                    <img src="image/open@2x.png" class="open"/>
-                    <img src="image/TakeUp@2x.png" class="TakeUp"/>
+                    <img src="{{ url_for('static',filename='image/open@2x.png')}}" class="open"/>
+                    <img src="{{ url_for('static', filename='image/TakeUp@2x.png') }}" class="TakeUp"/>
                 </div>
                 <ul>
                     <li class="subdivide">细分问题1</li>
@@ -61,9 +61,9 @@
     	<div class="result">
             <div class="issue-text">
                 <span class="issue-nav"></span>
-                <img src="image/Crumbs@2x.png" class="crumbs" />
+                <img src="{{ url_for('static',filename='image/Crumbs@2x.png')}}" class="crumbs" />
                 <span class="subdivide-nav"></span>
-                <img src="image/Crumbs@2x.png" class="crumbs1" />
+                <img src="{{ url_for('static',filename='image/Crumbs@2x.png')}}" class="crumbs1" />
                 <span class="particular-nav"></span>
             </div>
     		<div class="particular-issue">
@@ -107,7 +107,7 @@
                 </div>
                 <!-- 图片和文件文件链接 -->
                 <div class="particular-img">
-                    <img src="image/empty@2x.png"/>
+                    <img src="{{ url_for('static',filename='image/empty@2x.png')}}"/>
                     <p></p>
                     <p></p>
                 </div>
@@ -115,13 +115,13 @@
                     <p>以上信息是否解决了您的问题？</p>
                     <div class="yes">
                         <button>是</button>
-                        <img src="image/yes@2x.png" class="yes-img" />
-                        <img src="../image/yesHover@2x.png" class="yesHover" />
+                        <img src="{{ url_for('static',filename='image/yes@2x.png')}}" class="yes-img" />
+                        <img src="{{ url_for('static',filename='image/image/yesHover@2x.png')}}" class="yesHover" />
                    </div>
                     <div class="no">
                         <button>否</button>
-                        <img src="image/No@2x.png" class="no-img" />
-                        <img src="image/NoHover@2x.png" class="noHover" />
+                        <img src="{{ url_for('static',filename='image/No@2x.png')}}" class="no-img" />
+                        <img src="{{ url_for('static',filename='image/NoHover@2x.png')}}" class="noHover" />
                    </div>   
                 </div>
                 <div class="yes-content">
@@ -168,7 +168,7 @@
                     关于“<span class="search-val"></span>”,共找到0相关问题
                 </p>
             </div>
-            <img src="image/empty@2x.png"/>
+            <img src="{{ url_for('static', filename='image/empty@2x.png')}}"/>
             <p>
                 很抱歉，我们暂时无“<span class="search-val"></span>”的相关信息，请您重新搜索。
             </p>
@@ -177,6 +177,6 @@
 
 
 </body>
-<script src='js/jquery-1.12.3.min.js'></script>
-<script src='js/index.js'></script>
+<script src="{{ url_for('static',filename='js/jquery-1.12.3.min.js')}}"></script>
+<script src="{{ url_for('static', filename='js/index.js')}}"></script>
 </html>
