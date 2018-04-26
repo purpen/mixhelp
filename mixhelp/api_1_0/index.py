@@ -1,52 +1,50 @@
 # -*- coding:utf-8 -*-
 from . import api
 import logging
-from flask import render_template
-from flask import request,jsonify,g
-from mixhelp.models.problem import Matter
+from flask import render_template, g
+
+from mixhelp.models.problem import Classify, Group, Info
+
+
+@api.route('/index', methods=['GET'])
+def index():
+
+    try:
+        classify_data = Classify.query.all()
+    except Exception as e:
+        logging.error(e)
+
+    for data in classify_data:
+        try:
+            group_data = Group.query.filter(Group.classify_id == data.type_name).all()
+            g.group_data = group_data
+            break
+        except Exception as e:
+            logging.error(e)
+    print 2
+    try:
+        info_data = Info.query.filter(g.group_data.group_name == Info.info_name).all()
+        g.info_data = info_data
+    except Exception as e:
+        logging.error(e)
+
+
+    if g.info_data is None:
+        print 1
+    else:
+        for data in g.info_data:
+            print data.details_name
+
+    data = {
+        'type': classify_data,
+        # 'group': issue_group,
+        'info': g.info_data
+    }
+
+    return render_template('index.html', datas=data)
 
 
 
-# 问题中心首页
-# @api.route('/makers/first', methods=['GET', 'POST'])
-# def first_page():
-#     # 获取所有问题类的对象
-#     try:
-#         type_data = ProblemType.query.all()
-#     except Exception as e:
-#         logging.error(e)
-#
-#     g.type_data = type_data
-#
-#     return render_template('index.html', type=type_data)
-
-
-# 分组问题页面
-# @api.route('/makers/second')
-# def second_page():
-
-    # type_name = request.form.get('type_name')
-    #
-    # if type_name is None:
-    #     return jsonify({'result': '该问题不存在'})
-    #
-    # try:
-    #     type_data = ProblemType.query.filter_by(type_name=type_name).get()
-    # except Exception as e:
-    #     logging.error(e)
-    #
-    # try:
-    #     spu_data = Problem_SPU.query.filter_by(spu_id=type_data.id).all()
-    # except Exception as e:
-    #     logging.error(e)
-    #
-    # data = {
-    #     'spu' == spu_data,
-    #     'type' == g.type_data
-    # }
-    # return render_template('',data=data)
-
-# 详情问题页
 
 
 
