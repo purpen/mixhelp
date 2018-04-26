@@ -5,11 +5,14 @@
     <title>后台管理页面</title>
 </head>
 <body>
-    <form action="/admin/set" method="post" >
+    <form action="/admin/set" method="post" enctype=multipart/form-data>
         请输入问题种类 <input type="text" name="type_name"> <br>
-        请输入分组问题名称 <input type="text" name="spu_name"> <br>
-        请输入详细问题名称 <input type="text" name="sku_name"> <br>
-        请输入问题标题 <input type="text" name="title"> <br>
+        请输入分组问题名称 <input type="text" name="group_name"> <br>
+        请输入详细问题名称 <input type="text" name="details_name"> <br>
+        请输入问题标题 <input type="text" name="details_title"> <br>
+        请输入问题答案 <input type="text" name="content"> <br>
+        上传文档连接 <input type="text" name="file_url"> <br>
+        选择图片<input type="file" name="photo">
         <input type="submit" value="提交">
     </form>
 </body>
