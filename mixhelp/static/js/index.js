@@ -13,7 +13,7 @@ $('.issue>div>div').click(function(){
 		$('.issueTemp div .TakeUp').show();
 		$('.issueTemp div .open').hide();
 	}else{
-		$('.issueTemp ul').hide();
+		$(this).siblings("ul").hide();
 		$('.issueTemp div .TakeUp').hide();
 		$('.issueTemp div .open').show();
 	}
@@ -42,23 +42,45 @@ $('.issueTemp ul li').click(function(){
     var idx = $(this).index();
     //让内容框的第 idx 个显示出来，其他的被隐藏
     $(".result>div>ul").eq(idx).show().siblings().hide();
+	var subdivide = $('.particular-issue ul li>a').html();
+	console.log(subdivide)
+	$('.particular-issue ul li>a').attr('href','/api/v1.0/info/' + subdivide)
 
-	// var subdivide = $(this).html();
-	// console.log(subdivide)
+	var subdivide = $(this).html();
+    $.ajax({
+        type:'GET',
+        url:'/api/v1.0/list',
+        data:{'name':subdivide},
+        dataType:'json',//希望服务器返回json格式的数据
+        success:function(data){
+        	if (data.res == 0){
+        		alert(data.msg)
+			}
+        }
+    });
 
-	// $.get(#?subdivide=subdivide,function(data){
-	// 	console.log(data)
-	// })
 })
 
 //详细问题点击事件
-$('.particular-issue ul>li').click(function(){
+$('.particular-issue ul>a').click(function(){
 	$('.result .crumbs1').show();
-	$('.particular-nav').html($(this).html())
+	$('.particular-nav').html($(this).children('a').html())
 	$('.particular-issue').hide();
 	$('.particular').show();
 	// 详细问题标题事件
     $('.particular h3').html($(this).html())
+
+    // var subdivide = $(this).html();
+    // $.ajax({
+    //     type:'GET',
+    //     url:'/api/v1.0/info',
+    //     data:{'name':subdivide},
+    //     dataType:'json',//希望服务器返回json格式的数据
+    //     success:function(data){
+    //         alert(JSON.stringify(data));
+    //         alert(data['test'])
+    //     }
+    // });
 })
 
 //搜索点击事件
