@@ -1,0 +1,91 @@
+{% extends 'base.html'%}
+{% block title%}帮助中心{% endblock %}
+
+
+{% block content %}
+    <div class="particular">
+                <h3>{{ datas.info.details_title}}</h3>
+                <div class="particular-content">
+                    <!--<p>-->
+                        <!--付款方式分为以下几种：（注：先款订单请您在订单提交后24小时内完成支付，否则订单会自动取消）-->
+                    <!--</p>-->
+                    <div>
+                        <ul>
+                            <li>
+                                {{ datas.info.content}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 图片和文件文件链接 -->
+                <div class="particular-img">
+                    <img src="{{ datas.info.image_url }}"/>
+                    <p>{{ datas.info.file_url}}</p>
+                    <p></p>
+                </div>
+                <div class="problem-solving">
+                    <p>以上信息是否解决了您的问题？</p>
+                    <div class="yes">
+                        <button>是</button>
+                        <img src="{{ url_for('static',filename='image/yes@2x.png')}}" class="yes-img" />
+                        <img src="{{ url_for('static',filename='image/image/yesHover@2x.png')}}" class="yesHover" />
+                   </div>
+                    <div class="no">
+                        <button>否</button>
+                        <img src="{{ url_for('static',filename='image/No@2x.png')}}" class="no-img" />
+                        <img src="{{ url_for('static',filename='image/NoHover@2x.png')}}" class="noHover" />
+                   </div>
+                </div>
+                <div class="yes-content">
+                    感谢您提供的反馈！
+                </div>
+                <div class="no-content">
+                    <p>请选择未解决的原因</p>
+                    <form action=""  method="">
+                        <label for="describe" class="radio_label checked">
+                            <input type="radio" value="1" id="describe" name="describe" />
+                            描述不清楚
+                        </label>
+                        <label for="product" class="radio_label">
+                            <input type="radio" value="2" id="product" name="product" />
+                            对产品不满意
+                        </label>
+                        <label for="content-no" class="radio_label">
+                            <input type="radio" value="3" id="content-no" name="content-no" />
+                            内容不正确
+                        </label>
+                        <label for="operation" class="radio_label">
+                            <input type="radio" value="4" id="operation" name="operation" />
+                            操作后未能解决问题
+                        </label>
+                        <br>
+                        <input type="submit" value="提交"  id="btnSubmit"   class="submit" />
+                    </form>
+
+
+                </div>
+                <div class="feedback">
+                    感谢您的反馈，我们将持续优化！
+                </div>
+            </div>
+
+
+    	</div>
+        <div class="search-content">
+            搜索内容
+        </div>
+        <div class="search-failure">
+            <div class="issue-text">
+                <p>
+                    关于“<span class="search-val"></span>”,共找到0相关问题
+                </p>
+            </div>
+            <img src="{{ url_for('static', filename='image/empty@2x.png')}}"/>
+            <p>
+                很抱歉，我们暂时无“<span class="search-val"></span>”的相关信息，请您重新搜索。
+            </p>
+        </div>
+    </div>
+
+
+{% endblock %}

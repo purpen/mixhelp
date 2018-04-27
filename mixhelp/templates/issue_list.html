@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+{% block title%}帮助中心{% endblock %}
+
+{% block list%}
+    <div class="particular-issue">
+        {% for data in datas.info_data%}
+        <ul>
+            <li>
+                <a href="###">{{ data.details_name}}</a>
+            </li>
+        </ul>
+        {% endfor %}
+    </div>
+{% endblock%}
