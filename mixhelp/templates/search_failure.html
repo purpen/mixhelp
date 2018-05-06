@@ -1,7 +1,7 @@
 {% extends 'index.html'%}
 {% block head %}
 <head>
-	<title></title>
+	<title>{% block title %}搜索页面{% endblock %}</title>
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css')}}"/>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/searchFailure.css')}}">
 </head>

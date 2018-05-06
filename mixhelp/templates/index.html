@@ -1,16 +1,102 @@
-{% extends 'base.html'%}
-{% block title%}帮助中心{% endblock %}
-
-{% block list%}
-    <div class="particular-issue">
-        {% for data in datas.group%}
-            {% for details in data.info%}
+<!DOCTYPE html>
+<html>
+{% block head %}
+<head>
+	<title>{% block title %}帮助中心{% endblock %}</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css')}}"/>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css')}}">
+</head>
+{% endblock %}
+<body>
+	<!-- 导航开始 -->
+    {% block top %}
+	<div class="nav">
+		<div>
+            <img src="{{ url_for('static', filename='image/logo@2x.png')}}" alt=""/>
+	    </div>
         <ul>
-            <li>
-                <a href="###">{{ details.details_name}}</a>
-            </li>
+	        <li>
+	        	<a href="#">产品</a>
+	        </li>
+	        <li>
+	        	<a href="#">价格</a>
+	        </li>
+	        <li>
+	        	<a href="#">解决方案</a>
+	        </li>
+	        <li>
+	        	<a href="#"  class="active">常见问题</a>
+	        </li>
+	        <li>
+	        	<a href="#">登录</a>
+	        </li>
+	        <li class="register">
+	        	<a href="#">注册</a>
+	        </li>
         </ul>
-            {% endfor %}
-         {% endfor %}
     </div>
-{% endblock%}
+    <!-- 导航结束	 -->
+    <!-- 搜索开始 -->
+    <div class="search">
+       <div>
+         <form action="/main/search"  method="post">
+            <label for="search-contont" class="">
+                <input type="text" name="issue" id='search-contont' placeholder="请输入问题">
+            </label>
+            <input type="submit" value="搜索"  id="searchSubmit"   class="btn" />       
+         </form>
+       </div>
+    </div>
+    <!-- 搜索结束 -->
+    <!-- 内容开始 -->
+    <div class="content">
+    	<div class="issue">
+            {% for data in datas.parent_data %}
+    		<div class="issueTemp issue-list">
+                <div>
+                    <p data-id="{{ data.id }}">{{ data[0].issue_name }}</p>
+                    <img src="{{ url_for('static', filename='image/open@2x.png')}}" class="open"/>
+                    <img src="{{ url_for('static', filename='image/TakeUp@2x.png')}}" class="TakeUp"/>
+                </div>
+
+                <ul>
+                    {% for data in data[1] %}
+                    <li>
+                        <a data-id="{{ data.id }}">{{ data.issue_name }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+            {% endfor %}
+
+    	</div>
+    {% endblock %}
+        {% block body %}
+    	<div class="result">
+            <div class="issue-text">
+                <a href="###" class="issue-nav" onclick="return false">{{ datas.navigation.issue_name }}</a>
+                <img src="{{ url_for('static', filename='image/Crumbs@2x.png')}}" class="crumbs" />
+                <a href="" class="subdivide-nav"></a>
+                <img src="{{ url_for('static', filename='image/Crumbs@2x.png')}}" class="crumbs1" />
+                <a href="" class="particular-nav"></a>
+            </div>
+
+    		<div class="particular-issue">
+                <ul>
+                    {% for data in datas.index_issue.info %}
+                    <li>
+                        <a href="#" data-id="{{ data.id }}">{{ data.details_name }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endblock %}
+    	</div>
+    </div>
+</body>
+{% block bottom_file %}
+<script src='{{ url_for("static", filename="js/jquery-1.12.3.min.js")}}'></script>
+<script src='{{ url_for("static", filename="js/index.js")}}'></script>
+{% endblock %}
+</html>

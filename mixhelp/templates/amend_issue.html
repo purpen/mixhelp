@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>后台管理页面</title>
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+  <meta charset="UTF-8">
+  <title>修改问题</title>
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
 </head>
 <body>
-    <div></div>
-    <form action="/admin/add"  method="post" id='radio-submit' class="box" enctype=multipart/form-data>
-            <label for="one" class="issue1">
-				问题种类 : <input type="text"  class="one" id="one" name="first_classify" list="classify">
-                            <datalist id="classify">
-                                {% for data in datas.classify %}
-                                <option value={{ data.issue_name }}></option>
-                                {% endfor %}
-                            </datalist>
-			    <p class="text"></p>
-            </label>
+  <h3>{{ datas.first_classify_data.issue_name }}</h3>
+  <form action="/admin/amend"  method="post" id='radio-submit' class="box" enctype=multipart/form-data>
             <label for="two" class="issue2">
 				二级分类 : <input type="text"  class="two" id="two" name="second_classify" list="list">
                             <datalist id="list">
-                                {% for data in datas.list %}
+                                {% for data in datas.second_classify_data %}
                                 <option value={{ data.issue_name }}></option>
                                 {% endfor %}
                             </datalist>
 			    <p class="text"></p>
             </label>
             <label for="three" class="issue3">
-				问题名称 : <input type="text"  class="three" id="three" name="details_name">
+				问题名称 : <input type="text"  class="three" id="three" name="details_name" list="info">
+                          <datalist id="info">
+                            {% for data in datas.second_classify_data %}
+                            {% for info in data.info%}
+                            <option value="{{ info.details_name }}"></option>
+                            {% endfor %}
+                            {% endfor %}
+                          </datalist>
             </label>
             <label for="four" class="issue4">
 				问题标题 : <input type="text"  class="four" id="four" name="details_title">
@@ -40,6 +38,7 @@
             <br>
             <input type="submit" value="提交"  id="btnSubmit"   class="submit" />
     </form>
+</body>
 <script>
 $("#summernote").summernote({
     height:300,
@@ -69,5 +68,4 @@ $("#summernote").summernote({
     }
 });
 </script>
-</body>
 </html>

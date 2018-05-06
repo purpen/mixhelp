@@ -1,94 +1,11 @@
 {% extends 'index.html'%}
-{% block title %}搜索页面{% endblock %}
 {% block head %}
-
+{% block title %}搜索页面{% endblock %}
 <head>
 	<link rel="stylesheet" href="{{url_for('static', filename='css/reset.css')}}"/>
 	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/searchList.css')}}">
 </head>
 {% endblock %}
-<!--<body>-->
-	<!--&lt;!&ndash; 导航开始 &ndash;&gt;-->
-	<!--<div class="nav">-->
-		<!--<div>-->
-            <!--<img src="image/logo@2x.png" alt=""/>-->
-	    <!--</div>-->
-        <!--<ul>-->
-	        <!--<li>-->
-	        	<!--<a href="#">产品</a>-->
-	        <!--</li>-->
-	        <!--<li>-->
-	        	<!--<a href="#">价格</a>-->
-	        <!--</li>-->
-	        <!--<li>-->
-	        	<!--<a href="#">解决方案</a>-->
-	        <!--</li>-->
-	        <!--<li>-->
-	        	<!--<a href="#"  class="active">常见问题</a>-->
-	        <!--</li>-->
-	        <!--<li>-->
-	        	<!--<a href="#">登录</a>-->
-	        <!--</li>-->
-	        <!--<li class="register">-->
-	        	<!--<a href="#">注册</a>-->
-	        <!--</li>-->
-        <!--</ul>-->
-    <!--</div>-->
-    <!-- 导航结束	 -->
-    <!-- 搜索开始 -->
-    <!--<div class="search">-->
-       <!--<div>-->
-         <!--<input type="text" name="" placeholder="请输入问题">-->
-         <!--<button class="btn">搜索</button>-->
-       <!--</div>-->
-    <!--</div>-->
-    <!-- 搜索结束 -->
-    <!-- 内容开始 -->
-    <!--<div class="content">-->
-    	<!--<div class="issue">-->
-    		<!--<div class="issueTemp">-->
-                <!--<div>-->
-                    <!--<p>问题01</p>-->
-                    <!--<img src="image/open@2x.png" class="open"/>-->
-                    <!--<img src="image/TakeUp@2x.png" class="TakeUp"/>-->
-                <!--</div>-->
-                <!--<ul>-->
-                    <!--<li class="subdivide">-->
-                        <!--<a href="">细分问题1</a> -->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<a href="">细分问题1</a>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<a href="">细分问题1</a>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<a href="">细分问题1</a>-->
-                    <!--</li>-->
-                <!--</ul>-->
-            <!--</div>-->
-            <!--<div class="issueTemp">-->
-                <!--<div>-->
-                    <!--<p>问题01</p>-->
-                    <!--<img src="image/open@2x.png" class="open"/>-->
-                    <!--<img src="image/TakeUp@2x.png" class="TakeUp"/>-->
-                <!--</div>-->
-                <!--<ul>-->
-                    <!--<li class="subdivide">-->
-                        <!--<a href="">细分问题1</a> -->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<a href="">细分问题1</a>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<a href="">细分问题1</a>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<a href="">细分问题1</a>-->
-                    <!--</li>-->
-                <!--</ul>-->
-            <!--</div>-->
-    	<!--</div>-->
         {% block body%}
     	<div class="search-content">
             <div class="issue-text">
@@ -98,9 +15,9 @@
             </div>
     		<div class="particular-issue">
                 <ul>
-                    {% for data in datas.info%}
+                    {% for data in datas.info %}
                     <li>
-                        <a href="#">{{ data.details_name }}</a>
+                        <a href="" data-id="{{ data.id }}">{{ data.details_name }}</a>
                     </li>
                     {% endfor %}
                 </ul>
