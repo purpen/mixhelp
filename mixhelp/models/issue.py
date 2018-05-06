@@ -37,7 +37,10 @@ class Info(db.Model):
     unsolved_num = db.Column(db.Integer)
     image_url = db.Column(db.String(200))
     file_url = db.Column(db.String(50))
-    unsolved_cause = db.Column(db.Integer)
+    cause_describe = db.Column(db.Integer, default=0)
+    cause_product = db.Column(db.Integer, default=0)
+    cause_content_no = db.Column(db.Integer, default=0)
+    cause_operation = db.Column(db.Integer, default=0)
     info_name = db.Column(db.String(50), db.ForeignKey('issue_group.group_name'))
 
 

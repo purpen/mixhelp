@@ -1,0 +1,79 @@
+{% extends 'index.html'%}
+
+{% block head%}
+<head>
+	<title>{% block title %}问题详情页{% endblock %}</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css')}}"/>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/details.css')}}">
+</head>
+{% endblock %}
+        {% block body %}
+    	<div class="result">
+            <div class="issue-text">
+                <a href="" class="issue-nav" onclick="return false">{{ datas.first_navigation.issue_name }}</a>
+                <img src="{{ url_for('static', filename='image/Crumbs@2x.png')}}" class="crumbs" />
+                <a href="" class="subdivide-nav" data-id="{{ datas.info.classify.id }}">{{ datas.info.classify.issue_name }}</a>
+                <img src="{{ url_for('static', filename='image/Crumbs@2x.png')}}" class="crumbs1" />
+                <a href="" class="particular-nav">{{ datas.info.details_name }}</a>
+            </div>
+
+            <div class="particular">
+                <h3>{{ datas.info.details_title }}</h3>
+                <div class="particular-content">
+                    <p>
+                        {{ datas.info.content|safe }}
+                    </p>
+                </div>
+                <!-- 图片和文件文件链接 -->
+                <!--<div class="particular-img">-->
+                    <!--<img src=""/>-->
+                    <!--<p></p>-->
+                <!--</div>-->
+                <div class="problem-solving">
+                    <p>以上信息是否解决了您的问题？</p>
+                    <div class="yes">
+                        <button>是</button>
+                        <img src="{{ url_for('static', filename='image/YesHover@2x.png')}}" class="yesHover" />
+                   </div>
+                    <div class="no">
+                        <button>否</button>
+                        <img src="{{ url_for('static', filename='image/NoHover@2x.png')}}" class="noHover" />
+                   </div>   
+                </div>
+                <div class="yes-content">
+                    感谢您提供的反馈！
+                </div>
+                <div class="no-content">
+                    <p>请选择未解决的原因</p>
+                    <form action="/main/issue_cause"  method="post">
+                        <input type="hidden" value="{{ datas.info.id }}" name="id">
+                        <label for="describe" class="radio_label checked">
+                            <input type="radio" value="1" id="describe" name="cause" />
+                            描述不清楚
+                        </label>
+                        <label for="product" class="radio_label">
+                            <input type="radio" value="2" id="product" name="cause" />
+                            对产品不满意
+                        </label>
+                        <label for="content-no" class="radio_label">
+                            <input type="radio" value="3" id="content-no" name="cause" />
+                            内容不正确
+                        </label>
+                        <label for="operation" class="radio_label">
+                            <input type="radio" value="4" id="operation" name="cause" />
+                            操作后未能解决问题
+                        </label>
+                        <br>
+                        <input type="submit" value="提交"  id="btnSubmit"   class="submit" />       
+                    </form>   
+                </div>
+                <div class="feedback">
+                    感谢您的反馈，我们将持续优化！
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+{% block bottom_file %}
+<script src='{{ url_for("static", filename="js/jquery-1.12.3.min.js")}}'></script>
+<script src='{{ url_for("static", filename="js/details.js")}}'></script>
+{% endblock %}

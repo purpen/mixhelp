@@ -1,0 +1,350 @@
+body{
+  width: 100%;
+  height: 100%;
+  background: #16777215;;
+}
+/*导航样式开始*/
+.nav{
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background: #02A65A;
+  overflow: hidden;
+}
+.nav div{
+	float: left;
+}
+
+    
+.nav div img{
+	width: 86px;
+	height: 35px;
+	margin-left: 130px;
+}
+.nav ul{
+  float: right;
+  margin-right: 103px;
+}
+  
+.nav ul>li{
+  float: left;
+  margin-left: 30px; 
+}
+.nav ul>li>a{
+  color:rgba(255,255,255,.5);
+}
+.nav ul>li>.active{
+  color: #fff;
+}
+.nav ul>.register{
+  margin-top: 13px;
+  width: 76px;
+  text-align: center;
+  border-radius: 4px;
+  line-height: 34px;
+  border: 1px solid rgba(255,255,255,.5);
+
+}
+/*导航样式结束*/
+ /*搜索样式开始*/
+.search{
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background: #fff;
+  clear: both;
+}
+.search>div{
+  position: relative;
+  width: 47.2%;
+  margin: 0 380px;
+}
+.search>div #search-contont{
+  width: 100%;
+  height: 40px;
+  border: 1px solid #02A65A;
+  border-radius: 4px;
+  color: #999;
+  padding-left: 20px;
+  box-sizing: border-box;
+ }
+.search>div .btn{
+  width: 60px;
+  height: 40px;
+  background: #02A65A;
+  border: none;
+  color: #fff;
+  position: absolute;
+  top:11px;
+  right: 0;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  outline: medium;
+}
+/*搜索样式结束*/
+/*内容样式开始*/
+.content{
+  margin: 20px 130px;
+}
+.content>div{
+  float: left;
+  background: #fff;
+}
+.content>.issue{
+  width: 18%;
+  border: 1px solid #E6E6E6;
+  border-radius: 4px;
+}
+
+/*左边内容样式开始*/
+.content>.issue>.issueTemp{
+  border-top: 1px solid #F5F5F5; 
+  line-height: 39px;
+}
+.content .issueTemp div{
+  color: #666666;
+  cursor: pointer;
+  overflow: hidden;
+}
+.content .issueTemp div>p{
+  margin-left: 50px;
+  float: left;
+}
+.content .issueTemp div>img{
+  float: right;
+  width: 16px;
+  margin-right: 18px;
+  margin-top: 12px;
+}
+.content .issueTemp ul{
+  display: none;
+}
+.content .issueTemp .TakeUp{
+  display: none;
+}
+.content .issueTemp ul>li{
+  text-align: center;
+  background: #16777215;
+}
+.content .issueTemp ul>li>a{
+   color: #666;
+}
+.content .issueTemp ul>li:hover{
+  color: #02A65A;
+  font-family: PingFangSC-Medium;
+  background: rgba(2,166,90,0.2);
+}
+.content .issueTemp ul>li:hover a{
+  color: #02A65A;
+  font-family: PingFangSC-Medium;
+}
+/*.content .issueTemp ul>.subdivide{
+  color: #02A65A;
+  font-family: PingFangSC-Medium;
+  background: rgba(2,166,90,0.2);
+}*/
+/*左边内容样式结束*/
+
+/*右边内容样式开始*/
+.result{
+  width: 74%;
+  margin-left: 20px;
+  border: 1px solid #E6E6E6;
+  border-radius: 4px 4px 0 0;
+  margin-bottom: 120px;
+}
+.result div>a{
+  color: #666666;
+  text-align: left;
+  float: left;
+}
+.issue-text{
+  height: 38px;
+  border-bottom: 1px solid #F5F5F5;
+}
+.result .issue-nav{
+  margin: 8px 10px 8px 40px;
+}
+.result div>.subdivide-nav,.result div>.particular-nav{
+  margin: 8px 10px;
+}
+.result .issue-text img{
+  width: 16px;
+  float: left;
+  margin: 11px 0;
+  display: none;
+
+}
+.result div ul{
+  margin-top: 20px;
+}
+
+.result .particular{
+  margin-top: 20px;
+}
+/*右边内容样式结束
+
+/*详细问题样式开始*/
+.particular{
+  /*height: 850px;*/
+  width: 100%;
+  background: #fff;
+  text-align: left;
+}
+.particular h3{
+  margin: 0 0 20px 40px;
+  font-size: 16px;
+  color: #222222;
+  font-weight: normal;
+}
+.particular-img>img{
+  border: 1px solid #979797;
+  width: 600px;
+  height: 400px;
+  margin: 0 0 20px 40px;
+
+}
+.particular-img>p{
+  margin: 0 0 20px 40px;
+  font-size: 14px;
+  color: #666666;
+}
+.particular-content div>ul{
+  display: block;
+  color: #666;
+  margin: 0 0 16px 40px;
+
+}
+.particular-content p{
+  margin: 0 0 16px 40px;
+  color: #666;
+}
+.particular-content div>ul>li{
+  margin-bottom: 20px;
+}
+.particular .problem-solving{
+  width: 100%;
+  height: 198px;
+  background: #FAFAFA;
+  border: 1px solid #E6E6E6;
+}
+.problem-solving>p{
+  margin: 60px 0 20px 367px;
+}
+.problem-solving>div{
+  float: left;
+  width: 120px;
+  height: 40px;
+  position: relative;
+}
+.problem-solving>div>button{
+  border: none;
+  outline: medium;
+  width: 120px;
+  height: 40px;
+  background: #FFFFFF;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.10);
+  border-radius: 4px;
+  padding-left: 40px;
+}
+.problem-solving>div>img{
+  position: absolute;
+  top: 10px;
+  left: 36px;
+  width: 20px;
+  display: none;
+}
+.problem-solving>.yes{
+  margin: 0 20px 0 335px;
+}
+.problem-solving>.yes>button{
+  background: url(../image/yes@2x.png) no-repeat;
+  background-size: 20px;
+  background-position: 36px 10px;
+}
+.problem-solving>.yes>button:hover{
+  background: url(../image/yesHover@2x.png) no-repeat;
+  background-size: 20px;
+  background-position: 36px 10px;
+  color: #02A65A;
+}
+.problem-solving>.no>button{
+  background: url(../image/No@2x.png) no-repeat;
+  background-size: 20px;
+  background-position: 36px 10px;
+}
+.problem-solving>.no>button:hover{
+  background: url(../image/NoHover@2x.png) no-repeat;
+  background-size: 20px;
+  background-position: 36px 10px;
+  color: #FF5A3C;
+}
+
+.yes-content{
+  display: none;
+  text-align: center;
+  line-height: 198px;
+  color: #999;
+  background: #FAFAFA;
+  border: 1px solid #E6E6E6;
+}
+.no-content{
+  height: 198px;
+  color: #999;
+  background: #FAFAFA;
+  border: 1px solid #E6E6E6;
+  text-align: center;
+  display: none;
+}
+.no-content>p{
+  color: #666;
+  margin: 40px 0 20px 0;
+}
+.no-content .submit{
+  background: #02A65A;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.10);
+  border-radius: 4px;
+  width: 120px;
+  height: 40px;
+  color: #fff;
+  border: none;
+  outline: medium;
+  margin-top: 20px;
+}
+
+.radio_label{
+  background: url(../image/ChoiceBox@2x.png) no-repeat;
+  background-size: 16px;
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+  text-indent:20px;
+  margin-right: 30px;
+}
+.radio_label input{
+  display: none;
+  padding-right: 10px;
+}
+.checked {
+  background: url(../image/Choice@2x.png) no-repeat;
+  background-size: 16px;
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+  text-indent:20px;
+  margin-right: 30px;
+}
+.feedback{
+  /*display: none;*/
+  text-align: center;
+  line-height: 198px;
+  color: #999;
+  background: #FAFAFA;
+  border: 1px solid #E6E6E6;
+}
+
+
+/*详细问题内容结束*/
+
+
+/*内容样式结束 

@@ -1,19 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>后台管理页面</title>
+	<title>问题</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
-    <form action="/admin/set" method="post" enctype=multipart/form-data>
-        请输入问题种类 <input type="text" name="type_name"> <br>
-        请输入分组问题名称 <input type="text" name="group_name"> <br>
-        请输入详细问题名称 <input type="text" name="details_name"> <br>
-        请输入问题标题 <input type="text" name="details_title"> <br>
-        请输入问题答案 <input type="text" name="content"> <br>
-        上传文档连接 <input type="text" name="file_url"> <br>
-        选择图片<input type="file" name="photo">
-        <input type="submit" value="提交">
-    </form>
+	<div class="content">
+		  <form action=""  method="" id='radio-submit' class="box">
+            <label for="one" class="issue1">
+				问题总类 : <input type="text"  class="one" id="one">
+			    <p class="text">请输入问题总类</p>
+            </label>
+            <label for="two" class="issue2">
+				分组问题 : <input type="text"  class="two" id="two">
+			    <p class="text">请输入分组问题</p>
+            </label>
+            <label for="three" class="issue3">
+				详情问题 : <input type="text"  class="three" id="three">
+			    <p class="text">请输入详情问题</p>
+            </label>
+            <label for="four" class="issue4">
+				问题标题 : <input type="text"  class="four" id="four">
+			    <p class="text">请输入问题标题</p>
+            </label>
+            <label for="five" class="issue5">
+				问题答案 : <input type="text"  class="five" id="five">
+			    <p class="text">请输入问题答案</p>
+            </label>
+            <label for="six" class="issue6">
+				文件链接 : <input type="text"  class="six" id="six">
+            </label>
+            <label for="seven" class="issue7">
+				上传图片 : <input type="text"  class="seven" id="seven">
+            </label>
+            <br>
+            <input type="submit" value="提交"  id="btnSubmit"   class="submit" />       
+        </form>  
+	</div>
+
 </body>
+<script src="jquery-1.12.3.min.js"></script>
+<script src='index.js'></script>
 </html>

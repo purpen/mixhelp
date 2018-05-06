@@ -3,7 +3,7 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" href="css/reset.css"/>
-	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/searchFailure.css">
 </head>
 <body>
 	<!-- 导航开始 -->
@@ -32,21 +32,15 @@
 	        </li>
         </ul>
     </div>
-    <!-- 导航结束	 -->
-    <!-- 搜索开始 -->
+        <!-- 搜索开始 -->
     <div class="search">
        <div>
-         <form action=""  method="">
-            <label for="search-contont" class="">
-                <input type="text" name="" id='search-contont' placeholder="请输入问题">
-            </label>
-            <input type="submit" value="搜索"  id="searchSubmit"   class="btn" />       
-         </form>
+         <input type="text" name="" placeholder="请输入问题">
+         <button class="btn">搜索</button>
        </div>
     </div>
     <!-- 搜索结束 -->
-    <!-- 内容开始 -->
-    <div class="content">
+      <div class="content">
     	<div class="issue">
     		<div class="issueTemp">
                 <div>
@@ -55,8 +49,8 @@
                     <img src="image/TakeUp@2x.png" class="TakeUp"/>
                 </div>
                 <ul>
-                    <li>
-                        <a>细分问题1</a> 
+                    <li class="subdivide">
+                        <a href="">细分问题1</a> 
                     </li>
                     <li>
                         <a href="">细分问题1</a>
@@ -76,7 +70,7 @@
                     <img src="image/TakeUp@2x.png" class="TakeUp"/>
                 </div>
                 <ul>
-                    <li>
+                    <li class="subdivide">
                         <a href="">细分问题1</a> 
                     </li>
                     <li>
@@ -91,43 +85,23 @@
                 </ul>
             </div>
     	</div>
-    	<div class="result">
+    	<!-- <div class="result"> -->
+      
+        <div class="search-failure">
             <div class="issue-text">
-                <a href="" class="issue-nav"></a>
-                <img src="image/Crumbs@2x.png" class="crumbs" />
-                <a href="" class="subdivide-nav"></a>
-                <img src="image/Crumbs@2x.png" class="crumbs1" />
-                <a href="" class="particular-nav"></a>
+                <p>
+                    关于“<span class="search-val"></span>”,共找到0相关问题
+                </p>
             </div>
-    		<div class="particular-issue">
-                <ul>
-                    <li>
-                        <a href="#">详细问题1</a>
-                    </li> 
-                </ul>
-                <ul>
-                    <li>
-                        <a href="#">详细问题1</a>
-                    </li> 
-                </ul>
-                <ul>
-                    <li>
-                        <a href="#">详细问题1</a>
-                    </li>   
-                </ul>
-                <ul>
-                    <li>
-                        <a href="#">详细问题1</a>
-                    </li>    
-                </ul>
-            </div>
-            
-            
-    	</div>
-    </div>
+            <img src="image/empty@2x.png"/>
+            <p>
+                很抱歉，我们暂时无“<span class="search-val"></span>”的相关信息，请您重新搜索。
+            </p>
+        </div>
+    <!-- </div> -->
 
 
 </body>
 <script src='js/jquery-1.12.3.min.js'></script>
-<script src='js/index.js'></script>
+<script src='js/searchFailure.js'></script>
 </html>

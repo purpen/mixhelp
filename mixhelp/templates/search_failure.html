@@ -1,0 +1,27 @@
+{% extends 'index.html'%}
+{% block head %}
+<head>
+	<title></title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css')}}"/>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/searchFailure.css')}}">
+</head>
+{% endblock %}
+<body>
+        {% block body %}
+        <div class="search-failure">
+            <div class="issue-text">
+                <p>
+                    关于“<span class="search-val">{{ datas.issue_name }}</span>”,共找到0相关问题
+                </p>
+            </div>
+            <img src="{{ url_for('static', filename='image/empty@2x.png')}}"/>
+            <p>
+                很抱歉，我们暂时无“<span class="search-val">{{ datas.issue_name }}</span>”的相关信息，请您重新搜索。
+            </p>
+        </div>
+        {% endblock %}
+</body>
+{% block bottom_file %}
+<script src='{{ url_for("static", filename="js/jquery-1.12.3.min.js")}}'></script>
+<script src='{{ url_for("static", filename="js/searchFailure.js")}}'></script>
+{% endblock %}
