@@ -16,27 +16,22 @@ $('.issue>div>div').click(function(){
 		$('.issueTemp div .TakeUp').hide();
 		$('.issueTemp div .open').show();
 	}
+})
+
+// 细节问题点击事件
+$('.issueTemp ul li a').click(function(){
+
+	var num = $(this).attr('data-id');
+    $('.issueTemp ul li a').attr('href','/main/issue_list/' + num)
 
 })
-//搜索点击事件
-// $('.btn').click(function(){
-// 	if($('.search input').val()){
-// 		$('.result').hide();
-// 		$('.search-content').show();
-// 	}else{
-// 		$('.result').hide();
-// 		$('.search-content').hide();
-// 	}
+
+$('.particular-issue ul li a').click(function () {
+	var num = $(this).attr('data-id');
+	$('.particular-issue ul li a').attr('href', '/main/issue_info/' + num)
+
+})
 
 
-//     var searchVal = $('.search input').val()
-// 	console.log(searchVal)
 
-	// $.get(#?searchVal=searchVal,function(data){
-		// if(data.length<1){
-		// 	$('.search-val').html(searchVal)
-		// }
-	// 	console.log(data)
-	// })
-	
-// })
+

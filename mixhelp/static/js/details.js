@@ -28,9 +28,21 @@ $('.issueTemp ul li a').click(function(){
     var subdivide = $(this).html();
 	$('.particular-issue ul li>a').attr('href','subdivide')
 	$(this).parent('li').addClass('subdivide')
-	
+	var subdivide = $(this).html();
+    $('.issueTemp ul li a').attr('href','/main/issue_list/' + subdivide)
+	$('.subdivide-nav').html(subdivide)
+	$('.subdivide-nav').attr('href','/main/issue_list' + subdivide)
 
+	var num = $(this).attr('data-id')
+	$('.issueTemp ul li a').attr('href','/main/issue_list/' + num)
+	$('.subdivide-nav').attr('href','/main/issue_list/' + num)
+	$('.particular-nav').attr('href','/main/issue_info/' + num)
 })
+$('.subdivide-nav').click(function () {
+	var num = $(this).attr('data-id')
+	$('.subdivide-nav').attr('href','/main/issue_list/' + num)
+})
+
 
 
 
@@ -41,7 +53,25 @@ $('.problem-solving .yes').click(function(){
 	$('.problem-solving .yes button').css('background','#E6F6EF');
 	$('.yes-content').show();
 	// $('.problem-solving').hide();
-
+	var url = window.location.pathname;
+	var num = url.split('/')[3]
+    $.post('/main/comment_yes',{'num':num},function (data) {
+		if(data.res == 0){
+			alert(data.message)
+		}
+    },
+    "json"
+    );
+// 	$.ajax({
+//         type:'GET',
+//         url:'/api/v1.0/comment',
+//         data:{'title':subdivide},
+//         dataType:'json',//希望服务器返回json格式的数据
+//         success:function(data){
+//             alert(JSON.stringify(data));
+//             alert(data['test'])
+//         }
+//     });
 
 });
 // 难过否的点击事件
@@ -51,17 +81,17 @@ $('.problem-solving .no').click(function(){
 	$('.problem-solving .no button').css('color','#FF5A3C');
 	$('.problem-solving .no button').css('background','#FFEFEC');
 
+	var url = window.location.pathname;
+	var num = url.split('/')[3]
+    $.post('/main/comment_no',{'num':num},function (data) {
+		if(data.res == 0){
+			alert(data.message)
+		}
+    },
+		'json'
+	)
+
 });
-
-// 提交反馈信息事件
-// $("input[type='submit']").click(function(){
-// 	$('.no-content').hide();
-// 	$('.feedback').show();
-// 	// 选中的单选按钮值
-// 	console.log($(".checked input[type='radio']").val())
-// })
-
-// 单选按钮点击事件
 
 　　//给所有的单选按钮点击添加处理
 $("input[type='radio']").click(function(){
@@ -70,3 +100,18 @@ $("input[type='radio']").click(function(){
 　　　//给自己对应的label
 　　$(this).parent().addClass("checked");
 });
+
+// $('.submit').click(function () {
+// 	var issue_title = $('.particular h3').html()
+//     $.post('/main/issue_cause',{'title':issue_title},function (data) {
+// 		if(data.errno == 0){
+// 			alert(data.errmsg)
+// 		}
+//     })
+// })
+
+window.onload=function(){
+	$('.particular-content p img').attr('style', 'width: 80%;')
+
+}
+

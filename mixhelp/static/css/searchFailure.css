@@ -4,6 +4,42 @@ body{
   background: #16777215;;
 }
 /*导航样式开始*/
+ /*搜索样式开始*/
+.search{
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background: #fff;
+  clear: both;
+}
+.search>div{
+  position: relative;
+  width: 47.2%;
+  margin: 0 380px;
+}
+.search>div #search-contont{
+  width: 100%;
+  height: 40px;
+  border: 1px solid #02A65A;
+  border-radius: 4px;
+  color: #999;
+  padding-left: 20px;
+  box-sizing: border-box;
+ }
+.search>div .btn{
+  width: 60px;
+  height: 40px;
+  background: #02A65A;
+  border: none;
+  color: #fff;
+  position: absolute;
+  top:11px;
+  right: 0;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  outline: medium;
+}
+/*搜索样式结束*/
 .nav{
   width: 100%;
   height: 60px;
@@ -159,7 +195,7 @@ body{
 .search-failure img{
   width: 82px;
   height: 94px;
-  margin: 128px 420px 0 428px;
+  margin: 128px 420px 0 340px;
 }
 .search-failure .issue-text>p{
   color: #666666;

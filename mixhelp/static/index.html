@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>{% block title %}{% endblock %}</title>
 	<link rel="stylesheet" href="css/reset.css"/>
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
 	<!-- 导航开始 -->
+    {% block top %}
 	<div class="nav">
 		<div>
             <img src="image/logo@2x.png" alt=""/>
@@ -48,27 +49,22 @@
     <!-- 内容开始 -->
     <div class="content">
     	<div class="issue">
+            {% for data in data.type%}
     		<div class="issueTemp">
                 <div>
-                    <p>问题01</p>
+                    <p>{{ data.type_name }}</p>
                     <img src="image/open@2x.png" class="open"/>
                     <img src="image/TakeUp@2x.png" class="TakeUp"/>
                 </div>
+                {% for group in data.group %}
                 <ul>
                     <li>
-                        <a>细分问题1</a> 
-                    </li>
-                    <li>
-                        <a href="">细分问题1</a>
-                    </li>
-                    <li>
-                        <a href="">细分问题1</a>
-                    </li>
-                    <li>
-                        <a href="">细分问题1</a>
+                        <a href="###">{{ group.group_name }}</a>
                     </li>
                 </ul>
+                {% endfor %}
             </div>
+            {% endfor %}
             <div class="issueTemp">
                 <div>
                     <p>问题01</p>
@@ -99,29 +95,16 @@
                 <img src="image/Crumbs@2x.png" class="crumbs1" />
                 <a href="" class="particular-nav"></a>
             </div>
+    {% endblock %}
+            {% block body %}
     		<div class="particular-issue">
                 <ul>
                     <li>
                         <a href="#">详细问题1</a>
                     </li> 
                 </ul>
-                <ul>
-                    <li>
-                        <a href="#">详细问题1</a>
-                    </li> 
-                </ul>
-                <ul>
-                    <li>
-                        <a href="#">详细问题1</a>
-                    </li>   
-                </ul>
-                <ul>
-                    <li>
-                        <a href="#">详细问题1</a>
-                    </li>    
-                </ul>
             </div>
-            
+            {% endblock %}
             
     	</div>
     </div>

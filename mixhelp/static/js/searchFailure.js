@@ -18,3 +18,10 @@ $('.issue>div>div').click(function(){
 	}
 
 })
+
+$('.issueTemp ul li a').click(function(){
+
+	var num = $(this).attr('data-id');
+    $('.issueTemp ul li a').attr('href','/main/issue_list/' + num)
+
+})

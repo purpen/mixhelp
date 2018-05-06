@@ -3,11 +3,18 @@ $('.nav li>a').mouseenter(function(){
     $('.nav li>a').removeClass('active');
     $(this).addClass('active')
 });
+// window.onload=function(){
+// 	  if($('.particular-issue ul>li>a').html()){
+// 		$('.issue>div>div').siblings("ul").eq($('.particular-issue ul').index()).show();
+// 		$('.issueTemp div .TakeUp').show();
+// 		$('.issueTemp div .open').hide();
+// 		}
+// }
 
 //左边问题点击事件
 $('.issue>div>div').click(function(){
-	
-	if($(this).siblings("ul").css('display')=='none' || $('.particular-issue ul>li>a').html()){
+
+	if($(this).siblings("ul").css('display')=='none'){
 		// $('.result .issue-nav').html($(this).children('p').html())
 		$(this).siblings("ul").show();
 		$('.issueTemp div .TakeUp').show();
@@ -32,36 +39,19 @@ $('.issueTemp ul li a').click(function(){
     // var subdivide = $('.particular-issue ul li>a').html();
 	// $('.particular-issue ul li>a').attr('href','/api/v1.0/info' + subdivide)
 	$(this).parent('li').addClass('subdivide')
-	var subdivide = $(this).html();
-    $('.issueTemp ul li a').attr('href','/api/v1.0/list/' + subdivide)
-	$('.subdivide-nav').html(subdivide)
-	$('.subdivide-nav').attr('href','/api/v1.0/list' + subdivide)
-
-
-	
+	var num = $(this).attr('data-id')
+    $('.issueTemp ul li a').attr('href','/main/issue_list/' + num)
+	$('.subdivide-nav').attr('href','/main/issue_list' + num)
 
 })
 
 //详细问题点击事件
 $('.particular-issue ul li a').click(function(){
 	var subdivide = $(this).html();
-	$('.particular-issue ul li>a').attr('href','/api/v1.0/info/' + subdivide)
+	var num = $(this).attr('data-id')
+	$('.particular-issue ul li>a').attr('href','/main/issue_info/' + num)
 })
-// 	// $('.result .crumbs1').show();
-// 	// $('.particular-nav').html($(this).children('a').html())
-// 	// $('.particular-issue').hide();
-// 	// $('.particular').show();
-// 	// 详细问题标题事件
-//     $('.particular h3').html($(this).html())
 
-
-//     var particular = $(this).html();
-// 	console.log(particular)
-	
-// 	// $.get(#?particular=particular,function(data){
-// 	// 	console.log(data)
-// 	// })
-// })
 
 
 
